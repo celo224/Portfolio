@@ -1,0 +1,688 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Steve Antto D — Computer Science & Engineering student specializing in AI/ML. Builder of intelligent systems connecting AI with the real world. Portfolio showcasing IoT, OCR, and AI Desktop Agent projects.">
+  <meta name="keywords"
+    content="Steve Antto D, AI, Machine Learning, IoT, Computer Science, Portfolio, Tamil Nadu, India">
+  <meta name="author" content="Steve Antto D">
+  <meta name="theme-color" content="#0F172A">
+
+  <title>Steve Antto D — AI/ML Engineer & Full-Stack Developer</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Preconnect for Google Fonts performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       BACKGROUND LAYERS
+       ═══════════════════════════════════════════════════════════ -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="fog-overlay" aria-hidden="true"></div>
+  <div class="lens-flare" id="lens-flare" aria-hidden="true"></div>
+
+  <!-- Scene Navigation Dots -->
+  <nav class="scene-nav" id="scene-nav" aria-label="Scene navigation">
+    <button class="dot active" data-scene="0" data-label="Opening" aria-label="Go to Opening"></button>
+    <button class="dot" data-scene="1" data-label="IoT System" aria-label="Go to IoT Project"></button>
+    <button class="dot" data-scene="2" data-label="OCR & AI" aria-label="Go to OCR Project"></button>
+    <button class="dot" data-scene="3" data-label="AI Agent" aria-label="Go to AI Agent Project"></button>
+    <button class="dot" data-scene="4" data-label="Skills" aria-label="Go to Skills"></button>
+    <button class="dot" data-scene="5" data-label="Experience" aria-label="Go to Experience"></button>
+    <button class="dot" data-scene="6" data-label="Contact" aria-label="Go to Contact"></button>
+  </nav>
+
+  <!-- Scene Counter -->
+  <div class="scene-counter" id="scene-counter" aria-hidden="true">
+    <span class="current">01</span> / 07
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MAIN CONTENT
+       ═══════════════════════════════════════════════════════════ -->
+  <main>
+
+    <!-- ─── SCENE 1: OPENING / HERO ─────────────────────────── -->
+    <section class="scene scene-hero" id="scene-0" aria-label="Introduction">
+      <div class="scene-content" style="text-align: center;">
+
+        <!-- Profile Photo -->
+        <div class="profile-photo-wrapper">
+          <div class="profile-photo">
+            <!-- Replace src with your photo: profile.webp -->
+            <img src="profile.webp" alt="Steve Antto D"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="photo-placeholder" style="display: none;">S</div>
+          </div>
+        </div>
+
+        <div class="hero-label">
+          ▍ Portfolio Film
+        </div>
+
+        <div class="hero-name-wrapper" id="hero-name-wrapper">
+          <div class="name-frame-line name-frame-top"></div>
+          <h1 class="hero-name" id="hero-name">
+            <span class="name-first">STEVE</span>
+            <span class="name-space">&nbsp;</span>
+            <span class="name-last">ANTTO</span>
+            <span class="name-space">&nbsp;</span>
+            <span class="name-initial">D</span>
+          </h1>
+          <div class="name-frame-line name-frame-bottom"></div>
+        </div>
+
+        <p class="hero-subtitle">
+          Computer Science &amp; Engineering
+          <span class="separator">|</span>
+          Artificial Intelligence &amp; Machine Learning
+        </p>
+
+        <p class="hero-location">
+          <span class="pin">◉</span> Tamil Nadu, India
+        </p>
+
+        <!-- Workspace Monitors -->
+        <div class="workspace-monitors">
+          <!-- Monitor 1: Code -->
+          <div class="monitor" id="monitor-code">
+            <div class="monitor-header">
+              <span class="monitor-dot red"></span>
+              <span class="monitor-dot yellow"></span>
+              <span class="monitor-dot green"></span>
+              <span class="monitor-title">model.py</span>
+            </div>
+            <div class="monitor-content">
+              <span class="keyword">import</span> <span class="func">tensorflow</span> <span class="keyword">as</span>
+              tf<br>
+              <span class="keyword">from</span> <span class="func">transformers</span> <span
+                class="keyword">import</span> AutoModel<br>
+              <br>
+              <span class="keyword">class</span> <span class="func">NeuralAgent</span>:<br>
+              &nbsp;&nbsp;<span class="keyword">def</span> <span class="func">__init__</span>(<span
+                class="keyword">self</span>):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;self.model = <span class="func">AutoModel</span>.<span
+                class="func">from_pretrained</span>(<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"qwen/qwen3-8b"</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;)<span class="typing-cursor"></span>
+            </div>
+          </div>
+
+          <!-- Monitor 2: Neural Network -->
+          <div class="monitor" id="monitor-neural">
+            <div class="monitor-header">
+              <span class="monitor-dot red"></span>
+              <span class="monitor-dot yellow"></span>
+              <span class="monitor-dot green"></span>
+              <span class="monitor-title">neural_viz</span>
+            </div>
+            <div class="monitor-content" id="neural-monitor-content">
+              <canvas id="neural-mini-canvas" width="230" height="90" style="width:100%;height:90px;"></canvas>
+            </div>
+          </div>
+
+          <!-- Monitor 3: IoT Dashboard -->
+          <div class="monitor" id="monitor-iot">
+            <div class="monitor-header">
+              <span class="monitor-dot red"></span>
+              <span class="monitor-dot yellow"></span>
+              <span class="monitor-dot green"></span>
+              <span class="monitor-title">iot_dashboard</span>
+            </div>
+            <div class="monitor-content">
+              <span class="comment">// Real-time Sensor Data</span><br>
+              <span class="func">soil_moisture</span>: <span class="string">72.4%</span> ▲<br>
+              <span class="func">temperature</span>: &nbsp;<span class="string">28.5°C</span><br>
+              <span class="func">humidity</span>: &nbsp;&nbsp;&nbsp;<span class="string">65.1%</span><br>
+              <span class="func">npk_nitrogen</span>: <span class="string">42 mg/kg</span><br>
+              <span class="func">pump_status</span>: &nbsp;<span class="keyword">ACTIVE</span> ●
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <span>Scroll to explore</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <div class="scene-divider" aria-hidden="true"></div>
+
+    <!-- ─── SCENE 2: IoT SOIL & IRRIGATION ───────────────────── -->
+    <section class="scene scene-project" id="scene-1" aria-label="IoT Soil Nutrient and Smart Irrigation System">
+      <div class="scene-content">
+
+        <div class="scene-label reveal">
+          <span class="scene-num">02</span> PROJECT
+        </div>
+
+        <div class="project-header reveal">
+          <h2 class="project-title">
+            IoT Soil Nutrient &amp; <span class="accent-amber">Smart Irrigation</span> System
+          </h2>
+          <p class="project-tagline">
+            A precision agriculture prototype that monitors soil health in real time and automates irrigation decisions
+            through intelligent sensor fusion and cloud connectivity.
+          </p>
+        </div>
+
+        <div class="project-layout">
+          <div class="reveal-left">
+            <div class="holo-card amber">
+              <ul class="feature-list">
+                <li>
+                  <span class="icon amber">⚡</span>
+                  <span>Real-time NPK nutrient analysis with calibrated sensor arrays providing actionable soil health
+                    metrics</span>
+                </li>
+                <li>
+                  <span class="icon amber">🌡</span>
+                  <span>DHT22 temperature &amp; humidity monitoring with adaptive threshold algorithms for optimal plant
+                    growth</span>
+                </li>
+                <li>
+                  <span class="icon cyan">📡</span>
+                  <span>NodeMCU ESP8266 wireless connectivity streaming live data to cloud dashboard with sub-second
+                    latency</span>
+                </li>
+                <li>
+                  <span class="icon cyan">💧</span>
+                  <span>Relay-controlled water pump automation triggered by soil moisture thresholds — zero manual
+                    intervention</span>
+                </li>
+                <li>
+                  <span class="icon amber">📊</span>
+                  <span>OLED display for on-device status and a holographic-style web dashboard for remote
+                    monitoring</span>
+                </li>
+              </ul>
+
+              <div class="tech-stack">
+                <span class="tech-pill amber">ESP8266</span>
+                <span class="tech-pill amber">NPK Sensor</span>
+                <span class="tech-pill amber">DHT22</span>
+                <span class="tech-pill">Arduino C++</span>
+                <span class="tech-pill">MQTT</span>
+                <span class="tech-pill">OLED SSD1306</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="visual-panel reveal-right">
+            <div class="project-visual">
+              <img src="iot-project.webp"
+                alt="IoT Smart Irrigation System prototype with sensors and microcontroller" loading="lazy">
+              <div class="img-overlay"></div>
+            </div>
+            <div class="data-overlay top-right">
+              SOIL MOISTURE
+              <span class="value amber">72.4%</span>
+            </div>
+            <div class="data-overlay bottom-left">
+              PUMP STATUS
+              <span class="value" style="color: #10B981;">● ACTIVE</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="scene-divider" aria-hidden="true"></div>
+
+    <!-- ─── SCENE 3: OCR & TRANSLATION ───────────────────────── -->
+    <section class="scene scene-project" id="scene-2" aria-label="AI-Powered OCR and Translation Application">
+      <div class="scene-content">
+
+        <div class="scene-label reveal">
+          <span class="scene-num">03</span> PROJECT
+        </div>
+
+        <div class="project-header reveal">
+          <h2 class="project-title">
+            AI-Powered <span class="accent">OCR &amp; Translation</span> Application
+          </h2>
+          <p class="project-tagline">
+            An intelligent document processing pipeline that extracts text from images in real time and translates
+            across multiple languages with a sleek, modern interface.
+          </p>
+        </div>
+
+        <div class="project-layout">
+          <div class="reveal-left">
+            <div class="holo-card">
+              <ul class="feature-list">
+                <li>
+                  <span class="icon cyan">🔍</span>
+                  <span>Real-time optical character recognition powered by Tesseract OCR engine with multi-script
+                    support</span>
+                </li>
+                <li>
+                  <span class="icon cyan">🌐</span>
+                  <span>Multi-language translation pipeline supporting 20+ languages with context-aware accuracy</span>
+                </li>
+                <li>
+                  <span class="icon violet">⚛</span>
+                  <span>Clean React.js frontend with elegant particle effects, live preview, and responsive
+                    design</span>
+                </li>
+                <li>
+                  <span class="icon cyan">🚀</span>
+                  <span>FastAPI backend with async processing, enabling sub-second extraction and translation
+                    cycles</span>
+                </li>
+                <li>
+                  <span class="icon violet">🔗</span>
+                  <span>Streaming data architecture connecting frontend and backend through glowing real-time data
+                    flows</span>
+                </li>
+              </ul>
+
+              <div class="tech-stack">
+                <span class="tech-pill">React.js</span>
+                <span class="tech-pill">FastAPI</span>
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill violet">Tesseract OCR</span>
+                <span class="tech-pill violet">Google Translate API</span>
+                <span class="tech-pill">Node.js</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="visual-panel reveal-right">
+            <div class="project-visual">
+              <img src="ocr-project.webp"
+                alt="AI OCR and Translation application interface with real-time text extraction" loading="lazy">
+              <div class="img-overlay"></div>
+            </div>
+            <div class="data-overlay top-right">
+              LANGUAGES
+              <span class="value">20+</span>
+            </div>
+            <div class="data-overlay bottom-left">
+              OCR ACCURACY
+              <span class="value" style="color: var(--cyan);">98.2%</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="scene-divider" aria-hidden="true"></div>
+
+    <!-- ─── SCENE 4: AI DESKTOP AGENT ────────────────────────── -->
+    <section class="scene scene-project" id="scene-3" aria-label="AI Desktop Agent - Offline Computer Agent">
+      <canvas class="neural-canvas" id="neural-bg-canvas" aria-hidden="true"></canvas>
+      <div class="scene-content">
+
+        <div class="scene-label reveal">
+          <span class="scene-num">04</span> PROJECT
+        </div>
+
+        <div class="project-header reveal">
+          <h2 class="project-title">
+            AI Desktop Agent — <span class="accent-violet">Offline Computer Agent</span>
+          </h2>
+          <p class="project-tagline">
+            A fully offline AI agent that understands and interacts with your desktop environment — opening
+            applications, reading windows, automating workflows — powered by a local Qwen 3 8B model running through
+            Ollama.
+          </p>
+        </div>
+
+        <div class="project-layout">
+          <div class="reveal-left">
+            <div class="holo-card violet">
+              <ul class="feature-list">
+                <li>
+                  <span class="icon violet">🧠</span>
+                  <span>Runs Qwen 3 8B locally via Ollama — complete privacy, zero cloud dependency, fully offline
+                    operation</span>
+                </li>
+                <li>
+                  <span class="icon violet">🖥</span>
+                  <span>Desktop awareness: understands open windows, active applications, and screen content through
+                    vision</span>
+                </li>
+                <li>
+                  <span class="icon cyan">⚙</span>
+                  <span>Task automation: opens apps, navigates interfaces, fills forms, and executes multi-step
+                    workflows</span>
+                </li>
+                <li>
+                  <span class="icon violet">🔒</span>
+                  <span>Privacy-first architecture — all processing happens locally, no data ever leaves your
+                    machine</span>
+                </li>
+                <li>
+                  <span class="icon cyan">🔄</span>
+                  <span>Extensible action framework for custom automation scripts and third-party tool
+                    integration</span>
+                </li>
+              </ul>
+
+              <div class="tech-stack">
+                <span class="tech-pill violet">Qwen 3 8B</span>
+                <span class="tech-pill violet">Ollama</span>
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill violet">Computer Vision</span>
+                <span class="tech-pill">PyAutoGUI</span>
+                <span class="tech-pill">LangChain</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="visual-panel reveal-right">
+            <div class="project-visual">
+              <img src="ai-agent-project.webp"
+                alt="AI Desktop Agent running offline with neural network visualization" loading="lazy">
+              <div class="img-overlay"></div>
+            </div>
+            <div class="data-overlay top-right">
+              MODEL
+              <span class="value violet">Qwen 3 8B</span>
+            </div>
+            <div class="data-overlay bottom-left">
+              LATENCY
+              <span class="value" style="color: var(--violet);">~1.2s</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="scene-divider" aria-hidden="true"></div>
+
+    <!-- ─── SCENE 5: SKILLS ──────────────────────────────────── -->
+    <section class="scene scene-skills" id="scene-4" aria-label="Technical Skills">
+      <div class="scene-content">
+
+        <div class="scene-label reveal">
+          <span class="scene-num">05</span> SKILLS
+        </div>
+
+        <div class="project-header reveal">
+          <h2 class="project-title">
+            Technical <span class="accent">Arsenal</span>
+          </h2>
+          <p class="project-tagline">
+            A rapid montage of technologies, frameworks, and tools — each mastered through hands-on project experience.
+          </p>
+        </div>
+
+        <!-- Languages -->
+        <div class="skills-category reveal">
+          <span class="cat-dot cyan"></span>
+          Languages
+        </div>
+        <div class="skills-grid stagger-children">
+          <div class="skill-card reveal">
+            <span class="skill-icon">🐍</span>
+            <span class="skill-name">Python</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">☕</span>
+            <span class="skill-name">Java</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">⚡</span>
+            <span class="skill-name">C / C++</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">✨</span>
+            <span class="skill-name">JavaScript</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🗄</span>
+            <span class="skill-name">SQL</span>
+          </div>
+        </div>
+
+        <!-- Frameworks & Libraries -->
+        <div class="skills-category reveal">
+          <span class="cat-dot amber"></span>
+          Frameworks &amp; Libraries
+        </div>
+        <div class="skills-grid stagger-children">
+          <div class="skill-card reveal">
+            <span class="skill-icon">⚛</span>
+            <span class="skill-name">React.js</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🟢</span>
+            <span class="skill-name">Node.js</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🚀</span>
+            <span class="skill-name">FastAPI</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🧠</span>
+            <span class="skill-name">TensorFlow</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🔗</span>
+            <span class="skill-name">LangChain</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🤖</span>
+            <span class="skill-name">Ollama</span>
+          </div>
+        </div>
+
+        <!-- Databases & Cloud -->
+        <div class="skills-category reveal">
+          <span class="cat-dot violet"></span>
+          Databases &amp; Cloud
+        </div>
+        <div class="skills-grid stagger-children">
+          <div class="skill-card reveal">
+            <span class="skill-icon">🍃</span>
+            <span class="skill-name">MongoDB</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🐘</span>
+            <span class="skill-name">PostgreSQL</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">☁</span>
+            <span class="skill-name">AWS</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🔥</span>
+            <span class="skill-name">Firebase</span>
+          </div>
+        </div>
+
+        <!-- Hardware & IoT -->
+        <div class="skills-category reveal">
+          <span class="cat-dot cyan"></span>
+          Hardware &amp; IoT
+        </div>
+        <div class="skills-grid stagger-children">
+          <div class="skill-card reveal">
+            <span class="skill-icon">📡</span>
+            <span class="skill-name">ESP8266</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🔌</span>
+            <span class="skill-name">ESP32</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🍓</span>
+            <span class="skill-name">Raspberry Pi</span>
+          </div>
+          <div class="skill-card reveal">
+            <span class="skill-icon">🔧</span>
+            <span class="skill-name">Arduino</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="scene-divider" aria-hidden="true"></div>
+
+    <!-- ─── SCENE 6: EXPERIENCE ──────────────────────────────── -->
+    <section class="scene scene-experience" id="scene-5" aria-label="Professional Experience">
+      <div class="scene-content">
+
+        <div class="scene-label reveal">
+          <span class="scene-num">06</span> EXPERIENCE
+        </div>
+
+        <div class="project-header reveal">
+          <h2 class="project-title">
+            Professional <span class="accent-amber">Journey</span>
+          </h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-date">2024 — Present</div>
+            <h3 class="timeline-title">CodSoft — Python Development</h3>
+            <p class="timeline-role">Software Development Intern</p>
+            <p class="timeline-desc">
+              Built Python-based applications and automation tools. Developed machine learning models for data analysis
+              and contributed to production-grade backend services.
+            </p>
+            <div class="tech-stack" style="margin-top: var(--space-md);">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">ML Models</span>
+              <span class="tech-pill">Automation</span>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-date">2023 — Present</div>
+            <h3 class="timeline-title">Freelance Web Development</h3>
+            <p class="timeline-role">Full-Stack Developer</p>
+            <p class="timeline-desc">
+              Designed and deployed responsive websites for clients across diverse industries. End-to-end project
+              delivery from UI/UX design to production deployment and hosting.
+            </p>
+            <div class="tech-stack" style="margin-top: var(--space-md);">
+              <span class="tech-pill amber">React.js</span>
+              <span class="tech-pill amber">Node.js</span>
+              <span class="tech-pill amber">MongoDB</span>
+              <span class="tech-pill amber">Deployment</span>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-date">Cisco Networking</div>
+            <h3 class="timeline-title">Network Engineering & Simulation</h3>
+            <p class="timeline-role">Cisco Packet Tracer</p>
+            <p class="timeline-desc">
+              Designed complex network topologies and simulated enterprise-grade architectures using Cisco Packet
+              Tracer. Configured routers, switches, VLANs, and routing protocols.
+            </p>
+            <div class="tech-stack" style="margin-top: var(--space-md);">
+              <span class="tech-pill violet">Packet Tracer</span>
+              <span class="tech-pill violet">VLAN</span>
+              <span class="tech-pill violet">Routing</span>
+              <span class="tech-pill violet">TCP/IP</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="scene-divider" aria-hidden="true"></div>
+
+    <!-- ─── SCENE 7: CLOSING / CONTACT ───────────────────────── -->
+    <section class="scene scene-closing" id="scene-6" aria-label="Contact">
+      <div class="scene-content">
+
+        <div class="reveal">
+          <div class="closing-divider"></div>
+        </div>
+
+        <p class="closing-quote reveal">
+          Building <em>intelligent systems</em> that connect AI with the real world.
+        </p>
+
+        <div class="contact-block reveal">
+          <a href="mailto:stevethaliyath22@gmail.com" class="contact-link" id="contact-email">
+            <span class="contact-icon">✉</span>
+            stevethaliyath22@gmail.com
+          </a>
+          <a href="tel:+919003674163" class="contact-link" id="contact-phone">
+            <span class="contact-icon">☎</span>
+            +91-9003674163
+          </a>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links reveal" style="transition-delay: 0.15s;">
+          <a href="https://github.com/steve-antto" target="_blank" rel="noopener noreferrer" class="social-link github"
+            id="social-github">
+            <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+            </svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/steveantto/" target="_blank" rel="noopener noreferrer"
+            class="social-link linkedin" id="social-linkedin">
+            <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+
+        <div class="reveal" style="transition-delay: 0.3s;">
+          <!-- Classic ornamental divider -->
+          <div class="ornament">
+            <span class="ornament-line"></span>
+            <span class="ornament-diamond"></span>
+            <span class="ornament-line"></span>
+          </div>
+          <p class="closing-name">STEVE ANTTO D</p>
+          <p class="closing-tagline">Crafting the future, one model at a time</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════ -->
+  <footer class="site-footer" aria-label="Footer">
+    <div class="footer-inner">
+      <div class="footer-ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-diamond"></span>
+        <span class="ornament-line"></span>
+      </div>
+      <p class="footer-since">
+        Ever since <span class="footer-year">2006</span>
+      </p>
+      <p class="footer-copy">
+        Designed & crafted with precision
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
